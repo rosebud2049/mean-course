@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../post.model';
 import { NgForm } from '@angular/forms';
 import { PostsService } from '../../services/posts.service';
+import { formatNumber } from '@angular/common';
 
 @Component({
   selector: 'app-post-create',
@@ -20,6 +21,7 @@ export class PostCreateComponent implements OnInit {
       return;
     }
     this.postsService.addPost(form.value.title, form.value.content);
+    form.resetForm();
   }
 
 }
